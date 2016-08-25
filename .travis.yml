@@ -1,0 +1,8 @@
+language: node_js
+node_js:
+    - 4.0
+    - 4.4
+    - 5.0
+    - 5.10
+before_install:
+    - "npm install -g npm@latest"
