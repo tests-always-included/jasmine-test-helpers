@@ -5,11 +5,11 @@
     "main": "/index.js",
     "scripts": {
         "test": "istanbul cover jasmine-node --captureExceptions spec/ && codecov && eslint .",
-        "watch": "jasmine-node lib test --autotest --watch"
+        "watch": "jasmine-node lib spec/ --autotest --watch"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/tests-always-included/node-test-helpers.git"
+        "url": "git+https://github.com/tests-always-included/jasmine-test-helpers.git"
     },
     "keywords": [
         "test",
@@ -30,9 +30,9 @@
     ],
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/tests-always-included/node-test-helpers/issues"
+        "url": "https://github.com/tests-always-included/jasmine-test-helpers/issues"
     },
-    "homepage": "https://github.com/tests-always-included/node-test-helpers#readme",
+    "homepage": "https://github.com/tests-always-included/jasmine-test-helpers#readme",
     "devDependencies": {
         "codecov": "^1.0.1",
         "eslint": "^2.13.1",

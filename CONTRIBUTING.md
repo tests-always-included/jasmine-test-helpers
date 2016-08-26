@@ -1,7 +1,7 @@
 Contributing
 ============
 
-A guide to contributing to Node Test Helpers.
+A guide to contributing to Jasmine Node Helpers.
 
 Preparing to Fork
 -----------------
