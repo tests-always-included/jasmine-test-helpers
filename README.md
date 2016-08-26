@@ -115,12 +115,12 @@ This makes it much easier to use promises in node tests. Instead of having to re
 
 See how much simpler that is? You won't need to add `done` to the `it` or accidentally put `done` in the `describe` and wonder why your tests are failing when you've been writing tests all day.
 
-[Code Coverage]: https://codecov.io/github/tests-always-included/jasmine-node-helpers?branch=develop
-[codecov-image]: https://codecov.io/github/tests-always-included/jasmine-node-helpers/coverage.svg?branch=develop
-[Dev Dependencies]: https://david-dm.org/tests-always-included/jasmine-node-helpers/develop#info=devDependencies
-[devdependencies-image]: https://david-dm.org/tests-always-included/jasmine-node-helpers/develop/dev-status.png
-[Dependencies]: https://david-dm.org/tests-always-included/jasmine-node-helpers/develop
-[dependencies-image]: https://david-dm.org/tests-always-included/jasmine-node-helpers/develop.png
+[Code Coverage]: https://codecov.io/github/tests-always-included/jasmine-node-helpers?branch=master
+[codecov-image]: https://codecov.io/github/tests-always-included/jasmine-node-helpers/coverage.svg?branch=master
+[Dev Dependencies]: https://david-dm.org/tests-always-included/jasmine-node-helpers/master#info=devDependencies
+[devdependencies-image]: https://david-dm.org/tests-always-included/jasmine-node-helpers/master/dev-status.png
+[Dependencies]: https://david-dm.org/tests-always-included/jasmine-node-helpers/master
+[dependencies-image]: https://david-dm.org/tests-always-included/jasmine-node-helpers/master.png
 [Jasmine]: https://jasmine.github.io/
 [Jasmine-Node]: https://www.npmjs.com/package/jasmine-node
 [Node.js]: https://nodejs.org
