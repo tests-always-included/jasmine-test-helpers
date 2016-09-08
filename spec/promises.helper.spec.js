@@ -30,11 +30,11 @@ describe("promises.helper", () => {
         });
     });
     it("has patched the methods", () => {
-        expect(jasmine.Env.prototype.patchedForPromises).toBe(true);
-        expect(jasmine.Env.prototype.afterEach.patchedForPromises).toBe(true);
-        expect(jasmine.Env.prototype.beforeEach.patchedForPromises).toBe(true);
-        expect(jasmine.Env.prototype.iit.patchedForPromises).toBe(true);
-        expect(jasmine.Env.prototype.it.patchedForPromises).toBe(true);
-        expect(jasmine.Env.prototype.xit.patchedForPromises).toBe(true);
+        expect(jasmine.getEnv().patchedForPromises).toBe(true);
+        expect(jasmine.getEnv().afterEach.patchedForPromises).toBe(true);
+        expect(jasmine.getEnv().beforeEach.patchedForPromises).toBe(true);
+        expect(jasmine.getEnv().fit.patchedForPromises).toBe(true);
+        expect(jasmine.getEnv().it.patchedForPromises).toBe(true);
+        expect(jasmine.getEnv().xit.patchedForPromises).toBe(true);
     });
 });
