@@ -1,4 +1,4 @@
-Jasmine Helpers
+Jasmine Test Helpers
 ====================
 
 *Helping you test your [Node.js] applications, one helper at a time.*
@@ -88,7 +88,7 @@ The middleware can be written in a traditional style using a callback like `done
         });
     });
 
-Promises helper
+Promises Helper
 ---------------
 
 This makes it much easier to use promises in node tests. Instead of having to remember to pass `done` in the `it` part of the testing in [Jasmine], you simple need to return the promise and the rest is handled like normal.
