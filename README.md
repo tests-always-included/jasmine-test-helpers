@@ -1,4 +1,4 @@
-Jasmine Test Helpers
+Jasmine Node Helpers
 ====================
 
 *Helping you test your [Node.js] applications, one helper at a time.*
@@ -18,7 +18,7 @@ How to Use
 
 Include the package in your `package.json` file.
 
-    npm install --save-dev jasmine-test-helpers
+    npm install --save-dev jasmine-node-helpers
 
 Then you need to be able to include the helper in your testing directory or where you'd like to run tests.
 
@@ -28,10 +28,10 @@ If you don't already have a helpers object in `spec/support/jasmine.json`, add t
 
 
     "helpers": [
-        "node_modules/jasmine-test-helpers/lib/*"
+        "node_modules/jasmine-node-helpers/lib/*"
     ]
 
-If you already have a helpers object, just add `"node_modules/jasmine-test-helpers/lib/*"` to it.
+If you already have a helpers object, just add `"node_modules/jasmine-node-helpers/lib/*"` to it.
 
 `jasmine.fail([actual], [expected])`
 ------------------------------------
@@ -113,13 +113,13 @@ This makes it much easier to use promises in node tests. Instead of having to re
 
 See how much simpler that is? You won't need to add `done` to the `it` or accidentally put `done` in the `describe` and wonder why your tests are failing when you've been writing tests all day.
 
-[Code Coverage]: https://codecov.io/github/tests-always-included/jasmine-test-helpers?branch=master
-[codecov-image]: https://codecov.io/github/tests-always-included/jasmine-test-helpers/coverage.svg?branch=master
-[Dev Dependencies]: https://david-dm.org/tests-always-included/jasmine-test-helpers/master#info=devDependencies
-[devdependencies-image]: https://david-dm.org/tests-always-included/jasmine-test-helpers/master/dev-status.png
-[Dependencies]: https://david-dm.org/tests-always-included/jasmine-test-helpers/master
-[dependencies-image]: https://david-dm.org/tests-always-included/jasmine-test-helpers/master.png
+[Code Coverage]: https://codecov.io/github/tests-always-included/jasmine-node-helpers?branch=master
+[codecov-image]: https://codecov.io/github/tests-always-included/jasmine-node-helpers/coverage.svg?branch=master
+[Dev Dependencies]: https://david-dm.org/tests-always-included/jasmine-node-helpers/master#info=devDependencies
+[devdependencies-image]: https://david-dm.org/tests-always-included/jasmine-node-helpers/master/dev-status.png
+[Dependencies]: https://david-dm.org/tests-always-included/jasmine-node-helpers/master
+[dependencies-image]: https://david-dm.org/tests-always-included/jasmine-node-helpers/master.png
 [Jasmine]: https://jasmine.github.io/
 [Node.js]: https://nodejs.org
-[travis-image]: https://secure.travis-ci.org/tests-always-included/jasmine-test-helpers.png
-[Travis CI]: http://travis-ci.org/tests-always-included/jasmine-test-helpers
+[travis-image]: https://secure.travis-ci.org/tests-always-included/jasmine-node-helpers.png
+[Travis CI]: http://travis-ci.org/tests-always-included/jasmine-node-helpers
