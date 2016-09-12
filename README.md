@@ -31,7 +31,7 @@ If you don't already have a helpers object in `spec/support/jasmine.json`, add t
         "../node_modules/jasmine-node-helpers/lib/*"
     ]
 
-If you already have a helpers object, just add `"node_modules/jasmine-node-helpers/lib/*"` to it.
+If you already have a helpers object, just add `"../node_modules/jasmine-node-helpers/lib/*"` to it.
 
 `jasmine.fail([actual], [expected])`
 ------------------------------------
@@ -120,6 +120,7 @@ See how much simpler that is? You won't need to add `done` to the `it` or accide
 [Dependencies]: https://david-dm.org/tests-always-included/jasmine-node-helpers/master
 [dependencies-image]: https://david-dm.org/tests-always-included/jasmine-node-helpers/master.png
 [Jasmine]: https://jasmine.github.io/
+[Jasmine-Node]: https://www.npmjs.com/package/jasmine-node
 [Node.js]: https://nodejs.org
 [travis-image]: https://secure.travis-ci.org/tests-always-included/jasmine-node-helpers.png
 [Travis CI]: http://travis-ci.org/tests-always-included/jasmine-node-helpers
