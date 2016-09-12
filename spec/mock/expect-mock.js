@@ -11,7 +11,7 @@ module.exports = (thing) => {
         var mock;
 
         mock = {};
-        mock.toBe = jasmine.createSpy("mock.toBe").andCallFake(() => {
+        mock.toBe = jasmine.createSpy("mock.toBe").and.callFake(() => {
             return true;
         });
 
