@@ -1,6 +1,6 @@
 {
     "name": "jasmine-node-helpers",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Public and free software for helping test NodeJS projects using Jasmine-Node.",
     "main": "/index.js",
     "scripts": {
@@ -11,6 +11,9 @@
         "url": "git+https://github.com/tests-always-included/jasmine-test-helpers.git"
     },
     "keywords": [
+        "jasmine",
+        "promise",
+        "middleware",
         "test",
         "helper",
         "node"
