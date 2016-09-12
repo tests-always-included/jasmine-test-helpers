@@ -3,7 +3,6 @@
 describe("promises.helper", () => {
     var check;
 
-    require("../lib/promises.helper");
     describe("check for promises working", () => {
         beforeEach(() => {
             check = 0;
@@ -36,5 +35,13 @@ describe("promises.helper", () => {
         expect(jasmine.getEnv().fit.patchedForPromises).toBe(true);
         expect(jasmine.getEnv().it.patchedForPromises).toBe(true);
         expect(jasmine.getEnv().xit.patchedForPromises).toBe(true);
+    });
+    beforeEach(() => {
+        delete require.cache[require.resolve("../lib/promises.helper.js")];
+        jasmine.Env.prototype.someKey = true;
+        require("../lib/promises.helper");
+    });
+    it("handles different Jasmine versions", () => {
+        expect(jasmine.Env.prototype.iit.patchedForPromises).toBe(true);
     });
 });
