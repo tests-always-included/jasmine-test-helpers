@@ -1,45 +1,49 @@
 {
-  "name": "jasmine-node-helpers",
-  "version": "1.0.0",
-  "description": "Public and free software for helping test NodeJS projects using Jasmine-Node.",
-  "main": "/index.js",
-  "scripts": {
-    "test": "istanbul cover jasmine --captureExceptions && codecov",
-    "watch": "jasmine-node lib spec/ --autotest --watch"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tests-always-included/jasmine-test-helpers.git"
-  },
-  "keywords": [
-    "test",
-    "helper",
-    "node"
-  ],
-  "author": "Tests Always Included Team",
-  "contributors": [
-    {
-      "name": "Christopher Tetreault",
-      "url": "https://github.com/AbsentSemicolon"
+    "name": "jasmine-node-helpers",
+    "version": "1.0.0",
+    "description": "Public and free software for helping test NodeJS projects using Jasmine-Node.",
+    "main": "/index.js",
+    "scripts": {
+        "test": "istanbul cover jasmine --captureExceptions && codecov",
+        "watch": "jasmine-node lib spec/ --autotest --watch"
     },
-    {
-      "name": "Tyler Akins",
-      "email": "fidian@rumkin.com",
-      "url": "https://github.com/fidian"
-    }
-  ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/tests-always-included/jasmine-test-helpers/issues"
-  },
-  "homepage": "https://github.com/tests-always-included/jasmine-test-helpers#readme",
-  "devDependencies": {
-    "codecov": "^1.0.1",
-    "eslint": "^2.13.1",
-    "eslint-plugin-jasmine": "^1.8.1",
-    "istanbul": "^0.4.2",
-    "jasmine": "2.4.1",
-    "mock-require": "^1.3.0"
-  },
-  "dependencies": {}
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/tests-always-included/jasmine-test-helpers.git"
+    },
+    "keywords": [
+        "test",
+        "helper",
+        "node"
+    ],
+    "author": "Tests Always Included Team",
+    "contributors": [
+        {
+            "name": "Christopher Tetreault",
+            "url": "https://github.com/AbsentSemicolon"
+        },
+        {
+            "name": "Tyler Akins",
+            "email": "fidian@rumkin.com",
+            "url": "https://github.com/fidian"
+        },
+        {
+            "name": "Lucas Nagle",
+            "url": "https://github.com/lnagle93"
+        }
+    ],
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/tests-always-included/jasmine-test-helpers/issues"
+    },
+    "homepage": "https://github.com/tests-always-included/jasmine-test-helpers#readme",
+    "devDependencies": {
+        "codecov": "^1.0.1",
+        "eslint": "^2.13.1",
+        "eslint-plugin-jasmine": "^1.8.1",
+        "istanbul": "^0.4.2",
+        "jasmine": "2.4.1",
+        "mock-require": "^1.3.0"
+    },
+    "dependencies": {}
 }
