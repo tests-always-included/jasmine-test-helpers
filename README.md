@@ -11,10 +11,10 @@ Jasmine Test Helpers
 About
 -----
 
-This contains a series of [Jasmine] 2.4.1 helpers made to facilitate testing certain functionality more easily. These help to detect when a test fails but should have passed, turn middleware into a promise and makes it easier to use promises in tests. More explanation is below for each helper.
+This contains a series of [Jasmine] helpers made to facilitate testing certain functionality more easily. These help to detect when a test fails but should have passed, turn middleware into a promise and makes it easier to use promises in tests. More explanation is below for each helper.
 
-How to Use
-----------
+How to Use With Jasmine Versions 2 And Up
+-----------------------------------------
 
 Include the package in your `package.json` file.
 
@@ -33,7 +33,35 @@ If you don't already have a helpers object in `spec/support/jasmine.json`, add t
 
 If you already have a helpers object, just add `"../node_modules/jasmine-test-helpers/lib/*"` to it.
 
-`jasmine.fail([actual], [expected])`
+How to Use With Jasmine Versions Below 2
+----------------------------------------
+
+Include the package in your `package.json` file.
+
+    npm install --save-dev jasmine-test-helpers
+
+Then you need to be able to include the helper in your testing directory or
+where you'd like to run tests.
+
+You can do this by creating a symbolic link to files contained. You'll want
+to link to the files and not the folder. [Jasmine] doesn't seem to pick up on
+the files if only the folder is linked. Below is an example of setting up a
+symbolic link. Make sure to include the folder in your `.gitignore` file so
+you don't commit the files as this folder will show up in your status.
+
+    // Linux/MacOS
+    mkdir ./path/to/project/test-folder/jasmine-node-helpers
+
+    cd /path/to/project
+    ln -s ./node_modules/jasmine-node-helpers/lib/*
+    ./test-folder/jasmine-node-helpers/
+
+    // Windows
+    // If you can figure out how to make symlink work, good on
+    you, make a [fork](CONTRIBUTING.md) and update those
+    instructions please.
+
+`jasminefail([actual], [expected])`
 ------------------------------------
 
 This is most useful when testing a promise is getting the reject as expected, and when you'd like the test to fail if the promise is resolved rather than rejected. Parameters can be passed as well if they make sense for the test, but don't regularly need to be used as this will cause a failure of the test if called.
