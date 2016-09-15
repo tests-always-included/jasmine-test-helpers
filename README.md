@@ -43,23 +43,27 @@ Include the package in your `package.json` file.
 Then you need to be able to include the helper in your testing directory or
 where you'd like to run tests.
 
-You can do this by creating a symbolic link to files contained. You'll want
-to link to the files and not the folder. [Jasmine] doesn't seem to pick up on
-the files if only the folder is linked. Below is an example of setting up a
-symbolic link. Make sure to include the folder in your `.gitignore` file so
-you don't commit the files as this folder will show up in your status.
+You can do this by adding a path to the module in the run scripts in your
+`package.json`. For example, if your `package.json` looks something like this:
 
-    // Linux/MacOS
-    mkdir ./path/to/project/test-folder/jasmine-node-helpers
 
-    cd /path/to/project
-    ln -s ./node_modules/jasmine-node-helpers/lib/*
-    ./test-folder/jasmine-node-helpers/
+    {
+        "scripts": {
+            "start": "node bin/myCoolApp",
+            "test": "jasmine-node spec/"
+        }
+    }
 
-    // Windows
-    // If you can figure out how to make symlink work, good on
-    you, make a [fork](CONTRIBUTING.md) and update those
-    instructions please.
+You would change that to:
+
+
+    {
+        "scripts": {
+            "start": "node bin/myCoolApp",
+            "test": "jasmine-node node_modules/jasmine-test-helpers/lib/* spec/"
+        }
+    }
+
 
 `jasminefail([actual], [expected])`
 ------------------------------------
