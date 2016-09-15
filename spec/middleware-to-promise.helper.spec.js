@@ -14,12 +14,12 @@ describe("middleware-to-promise.helper", () => {
             "call",
             "otherCall"
         ]);
-        mockCall.call.and.callFake(() => {
+        mockCall.call.andCallFake(() => {
             return new Promise((resolve) => {
                 return resolve();
             });
         });
-        mockCall.otherCall.and.callFake(() => {
+        mockCall.otherCall.andCallFake(() => {
             return new Promise((resolve, reject) => {
                 return reject();
             });
@@ -28,7 +28,7 @@ describe("middleware-to-promise.helper", () => {
             secondMock = jasmine.createSpyObj("secondMock", [
                 "call"
             ]);
-            secondMock.call.and.callFake(() => {
+            secondMock.call.andCallFake(() => {
                 return new Promise((resolve, reject) => {
                     var promise;
 
