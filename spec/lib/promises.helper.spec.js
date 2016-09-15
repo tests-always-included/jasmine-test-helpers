@@ -25,7 +25,7 @@ describe("promises.helper", () => {
         }
 
         oldJasmine = global.jasmine;
-        mock = mockRequire.reRequire(`./mock/jasmine${versionNumber}-mock.js`)();
+        mock = mockRequire.reRequire(`../mock/jasmine${versionNumber}-mock.js`)();
 
         try {
             global.jasmine = mock;
@@ -69,7 +69,7 @@ describe("promises.helper", () => {
 
         describe("Jasmine versions less than 2", () => {
             beforeEach(() => {
-                jasmineMock = versionTestHelper("../lib/promises.helper.js", 1).currentEnv_;
+                jasmineMock = versionTestHelper("../../lib/promises.helper.js", 1).currentEnv_;
             });
             it("has patched the methods", () => {
                 expect(jasmineMock.patchedForPromises).toBe(true);
@@ -82,7 +82,7 @@ describe("promises.helper", () => {
         });
         describe("Jasmine versions 2 and up", () => {
             beforeEach(() => {
-                jasmineMock = versionTestHelper("../lib/promises.helper.js", 2).currentEnv_;
+                jasmineMock = versionTestHelper("../../lib/promises.helper.js", 2).currentEnv_;
             });
             it("has patched the methods", () => {
                 expect(jasmineMock.patchedForPromises).toBe(true);

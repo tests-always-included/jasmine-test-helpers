@@ -3,12 +3,12 @@
 describe("middleware-to-promise.helper", () => {
     var factory, mockCall;
 
-    require("../lib/promises.helper");
-    require("../lib/fail.helper");
+    require("../../lib/promises.helper");
+    require("../../lib/fail.helper");
     beforeEach(() => {
         var secondMock;
 
-        require("../lib/middleware-to-promise.helper");
+        require("../../lib/middleware-to-promise.helper");
 
         mockCall = jasmine.createSpyObj("mock", [
             "call",
@@ -42,7 +42,7 @@ describe("middleware-to-promise.helper", () => {
                 });
             });
 
-            return require("./mock/middleware-mock")(mockCall, secondMock);
+            return require("../mock/middleware-mock")(mockCall, secondMock);
         };
     });
     it("expects jasmine.middlewareToPromise to exist", () => {
