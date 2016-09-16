@@ -4,13 +4,14 @@ module.exports = () => {
     var mock;
 
     mock = {
-        currentEnv_: {
-            afterEach: () => {},
-            beforeEach: () => {},
-            fit: () => {},
-            it: () => {},
-            xit: () => {}
-        }
+        // currentEnv_: {
+        //     afterEach: () => {},
+        //     beforeEach: () => {},
+        //     fit: () => {},
+        //     it: () => {},
+        //     xit: () => {}
+        // },
+        Env: {}
     };
 
     return mock;
