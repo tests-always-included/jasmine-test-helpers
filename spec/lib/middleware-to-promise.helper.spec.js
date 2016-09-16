@@ -3,11 +3,11 @@
 describe("middleware-to-promise.helper", () => {
     var factory, mockCall;
 
-    require("../../lib/promises.helper");
-    require("../../lib/fail.helper");
     beforeEach(() => {
         var secondMock;
 
+        require("../../lib/promises.helper");
+        require("../../lib/fail.helper");
         require("../../lib/middleware-to-promise.helper");
 
         mockCall = jasmine.createSpyObj("mock", [
