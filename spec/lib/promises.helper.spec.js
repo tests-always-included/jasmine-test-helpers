@@ -26,6 +26,7 @@ describe("promises.helper", () => {
         }
 
         oldJasmine = global.jasmine;
+
         if (optionalMock) {
             mock = optionalMock;
         } else {
