@@ -71,13 +71,13 @@ describe("promises.helper", () => {
         });
     });
     describe("Version compatability:", () => {
-        describe("Jasmine versions that utitlize prototypal inheritance", () => {
+        describe("A Jasmine version that utitlize prototypal inheritance", () => {
             var jasmineMock;
 
             beforeEach(() => {
                 jasmineMock = versionTestHelper("../../lib/promises.helper.js", "prototypal").Env.prototype;
             });
-            it("have patched the methods", () => {
+            it("has patched methods", () => {
                 expect(jasmineMock.afterEach.patchedForPromises).toBe(true);
                 expect(jasmineMock.beforeEach.patchedForPromises).toBe(true);
                 expect(jasmineMock.iit.patchedForPromises).toBe(true);
@@ -85,13 +85,13 @@ describe("promises.helper", () => {
                 expect(jasmineMock.xit.patchedForPromises).toBe(true);
             });
         });
-        describe("Jasmine versions that do not utilize prototypal inheritance", () => {
+        describe("A Jasmine version that doesn't utilize prototypal inheritance", () => {
             var jasmineMock;
 
             beforeEach(() => {
                 jasmineMock = versionTestHelper("../../lib/promises.helper.js", "nonprototypal").Env;
             });
-            it("have patched the methods", () => {
+            it("has patched methods", () => {
                 expect(jasmineMock.afterEach.patchedForPromises).toBe(true);
                 expect(jasmineMock.beforeEach.patchedForPromises).toBe(true);
                 expect(jasmineMock.fit.patchedForPromises).toBe(true);
