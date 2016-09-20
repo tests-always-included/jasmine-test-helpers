@@ -3,33 +3,47 @@
 "use strict";
 
 describe("fail.helper", () => {
-    var expectMock;
+    var expectMock, mockRequire, realExpect;
+
+    mockRequire = require("mock-require");
 
     beforeEach(() => {
-        expectMock = require("../mock/expect-mock");
+        realExpect = expect;
+        spyOn(global, "expect").andReturn({
+            toBe: jasmine.createSpy("expect.toBe")
+        });
     });
     it("expects jasmine.fail to exist", () => {
         require("../../lib/fail.helper");
-        expect(jasmine.fail).toEqual(jasmine.any(Function));
+        realExpect(jasmine.fail).toEqual(jasmine.any(Function));
     });
     describe("checking for fail", () => {
         beforeEach(() => {
             require("../../lib/fail.helper");
         });
         it("should fail when arguments are the same", () => {
-            jasmine.fail(false, false, expectMock);
+            jasmine.fail(false, false);
         });
         it("should fail when first argument is null", () => {
-            jasmine.fail(null, false, expectMock);
+            jasmine.fail(null, false);
         });
         it("should fail when first argument is undefined", () => {
-            jasmine.fail(undefined, false, expectMock);
+            jasmine.fail(undefined, false);
         });
         it("should fail when second argument is undefined", () => {
-            jasmine.fail(false, undefined, expectMock);
+            jasmine.fail(false, undefined);
         });
         it("should fail when second argument is null", () => {
-            jasmine.fail(false, null, expectMock);
+            jasmine.fail(false, null);
+        });
+    });
+    describe("patching for fail", () => {
+        it("only happens once", () => {
+            var jasmineCopy;
+
+            jasmineCopy = jasmine;
+            mockRequire.reRequire("../../lib/fail.helper.js");
+            expect(jasmineCopy).toBe(jasmine);
         });
     });
 });
