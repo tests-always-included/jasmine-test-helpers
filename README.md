@@ -65,7 +65,7 @@ You would change that to:
     }
 
 
-`jasminefail([actual], [expected])`
+`jasmine.fail([actual], [expected])`
 ------------------------------------
 
 This is most useful when testing a promise is getting the reject as expected, and when you'd like the test to fail if the promise is resolved rather than rejected. Parameters can be passed as well if they make sense for the test, but don't regularly need to be used as this will cause a failure of the test if called.
