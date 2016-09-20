@@ -1,17 +1,20 @@
 {
-    "name": "jasmine-node-helpers",
-    "version": "1.0.0",
+    "name": "jasmine-test-helpers",
+    "version": "1.1.0",
     "description": "Public and free software for helping test NodeJS projects using Jasmine-Node.",
     "main": "/index.js",
     "scripts": {
-        "test": "istanbul cover jasmine-node --captureExceptions spec/ && codecov && eslint .",
-        "watch": "jasmine-node lib spec/ --autotest --watch"
+        "test": "istanbul cover jasmine-node --captureExceptions lib/ spec/ && codecov && eslint .",
+        "watch": "jasmine-node lib spec --autotest --watch"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/tests-always-included/jasmine-test-helpers.git"
     },
     "keywords": [
+        "jasmine",
+        "promise",
+        "middleware",
         "test",
         "helper",
         "node"
@@ -26,6 +29,10 @@
             "name": "Tyler Akins",
             "email": "fidian@rumkin.com",
             "url": "https://github.com/fidian"
+        },
+        {
+            "name": "Lucas Nagle",
+            "url": "https://github.com/lnagle93"
         }
     ],
     "license": "MIT",
