@@ -9,7 +9,7 @@ describe("promises.helper", () => {
      * Provides a way of easily passing in a mock Jasmine environment.
      *
      * @param {string} filePath
-     * @param {number} versionNumber
+     * @param {number} version
      * @param {Object} optionalMock Only passed in to test that patching
      * doesn't occur twice.
      * @return {Object}
