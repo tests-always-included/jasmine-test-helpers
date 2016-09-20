@@ -102,9 +102,9 @@ describe("promises.helper", () => {
     it("only patches for promises once", () => {
         var jasmineCopy;
 
-        jasmineCopy = jasmine;
+        jasmineCopy = jasmine.then;
         mockRequire.reRequire("../../lib/promises.helper.js");
-        expect(jasmineCopy).toBe(jasmine);
+        expect(jasmineCopy).toBe(jasmine.then);
     });
     it("does not patch methods that already handle promises", (done) => {
         mockRequire.reRequire("../../lib/promises.helper.js");

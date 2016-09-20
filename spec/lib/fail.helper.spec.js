@@ -41,9 +41,9 @@ describe("fail.helper", () => {
         it("only happens once", () => {
             var jasmineCopy;
 
-            jasmineCopy = jasmine;
+            jasmineCopy = jasmine.fail;
             mockRequire.reRequire("../../lib/fail.helper.js");
-            expect(jasmineCopy).toBe(jasmine);
+            expect(jasmineCopy).toBe(jasmine.fail);
         });
     });
 });
