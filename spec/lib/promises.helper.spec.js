@@ -130,7 +130,6 @@ describe("promises.helper", () => {
         expect(jasmineCopy).toBe(jasmine.then);
     });
     it("does not patch methods that already handle promises", (done) => {
-        mockRequire.reRequire("../../lib/promises.helper.js");
         done();
     });
 });
