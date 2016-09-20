@@ -23,8 +23,7 @@ describe("promises.helper", () => {
      *
      * @param {string} filePath
      * @param {number} version
-     * @param {Object} optionalMock Only passed in to test that patching
-     * doesn't occur twice.
+     * @param {Object} [optionalMock] Makes sure patching happens only once.
      * @return {Object}
      */
     function versionTestHelper(filePath, version, optionalMock) {
