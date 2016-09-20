@@ -6,6 +6,19 @@ describe("promises.helper", () => {
     mockRequire = require("mock-require");
 
     /**
+     * Checks that an array of methods has been patched.
+     *
+     * @param {Object} env
+     * @param {Array} methods
+     */
+    function testForPatching(env, methods) {
+        methods.forEach((method) => {
+            expect(env[method].patchedForPromises).toBe(true);
+        });
+    }
+
+
+    /**
      * Provides a way of easily passing in a mock Jasmine environment.
      *
      * @param {string} filePath
@@ -78,11 +91,16 @@ describe("promises.helper", () => {
                 jasmineMock = versionTestHelper("../../lib/promises.helper.js", "prototypal").Env.prototype;
             });
             it("has patched methods", () => {
-                expect(jasmineMock.afterEach.patchedForPromises).toBe(true);
-                expect(jasmineMock.beforeEach.patchedForPromises).toBe(true);
-                expect(jasmineMock.iit.patchedForPromises).toBe(true);
-                expect(jasmineMock.it.patchedForPromises).toBe(true);
-                expect(jasmineMock.xit.patchedForPromises).toBe(true);
+                var methods;
+
+                methods = [
+                    "afterEach",
+                    "beforeEach",
+                    "iit",
+                    "it",
+                    "xit"
+                ];
+                testForPatching(jasmineMock, methods);
             });
         });
         describe("A Jasmine version that doesn't utilize prototypal inheritance", () => {
@@ -92,11 +110,16 @@ describe("promises.helper", () => {
                 jasmineMock = versionTestHelper("../../lib/promises.helper.js", "nonprototypal").Env;
             });
             it("has patched methods", () => {
-                expect(jasmineMock.afterEach.patchedForPromises).toBe(true);
-                expect(jasmineMock.beforeEach.patchedForPromises).toBe(true);
-                expect(jasmineMock.fit.patchedForPromises).toBe(true);
-                expect(jasmineMock.it.patchedForPromises).toBe(true);
-                expect(jasmineMock.xit.patchedForPromises).toBe(true);
+                var methods;
+
+                methods = [
+                    "afterEach",
+                    "beforeEach",
+                    "fit",
+                    "it",
+                    "xit"
+                ];
+                testForPatching(jasmineMock, methods);
             });
         });
     });
