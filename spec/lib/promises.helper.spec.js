@@ -1,7 +1,6 @@
-/* eslint-disable no-underscore-dangle */
 "use strict";
 
-ddescribe("promises.helper", () => {
+describe("promises.helper", () => {
     var check, mockRequire;
 
     mockRequire = require("mock-require");
@@ -11,9 +10,11 @@ ddescribe("promises.helper", () => {
      *
      * @param {string} filePath
      * @param {number} versionNumber
+     * @param {Object} optionalMock Only passed in to test that patching
+     * doesn't occur twice.
      * @return {Object}
      */
-    function versionTestHelper(filePath, versionNumber) {
+    function versionTestHelper(filePath, version, optionalMock) {
         var mock, oldJasmine;
 
         /**
@@ -25,14 +26,16 @@ ddescribe("promises.helper", () => {
         }
 
         oldJasmine = global.jasmine;
-        mock = mockRequire.reRequire(`../mock/jasmine${versionNumber}-mock.js`)();
-        console.log("MOCK", mock);
+        if (optionalMock) {
+            mock = optionalMock;
+        } else {
+            mock = mockRequire.reRequire(`../mock/jasmine-${version}-mock.js`)();
+        }
 
         try {
             global.jasmine = mock;
             mockRequire.reRequire(filePath);
         } catch (err) {
-            console.log("ERROR", err);
             cleanup();
             throw err;
         }
@@ -41,60 +44,70 @@ ddescribe("promises.helper", () => {
 
         return mock;
     }
-    // describe("check for promises working", () => {
-    //     beforeEach(() => {
-    //         check = 0;
-    //
-    //         return new Promise((resolve) => {
-    //             setTimeout(() => {
-    //                 check = 1;
-    //                 resolve();
-    //             }, 100);
-    //         });
-    //     });
-    //     it("waited for the beforeEach to finish", () => {
-    //         expect(check).toBe(1);
-    //
-    //         return new Promise((resolve) => {
-    //             setTimeout(() => {
-    //                 check = 2;
-    //                 resolve();
-    //             }, 100);
-    //         });
-    //     });
-    //     afterEach(() => {
-    //         expect(check).toBe(2);
-    //     });
-    // });
-    describe("Version compatability:", () => {
-        var jasmineMock;
+    describe("check for promises working", () => {
+        beforeEach(() => {
+            check = 0;
 
-        // TODO Fix Test Descriptions
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    check = 1;
+                    resolve();
+                }, 100);
+            });
+        });
+        it("waited for the beforeEach to finish", () => {
+            expect(check).toBe(1);
+
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    check = 2;
+                    resolve();
+                }, 100);
+            });
+        });
+        afterEach(() => {
+            expect(check).toBe(2);
+        });
+    });
+    describe("Version compatability:", () => {
         describe("Jasmine versions that utitlize prototypal inheritance", () => {
+            var jasmineMock;
+
             beforeEach(() => {
-                jasmineMock = versionTestHelper("../../lib/promises.helper.js", 1);
+                jasmineMock = versionTestHelper("../../lib/promises.helper.js", "prototypal").Env.prototype;
             });
             it("have patched the methods", () => {
-                expect(true).toBe(true);
-                // expect(jasmineMock.afterEach).toBe(true);
-                // expect(jasmineMock.beforeEach).toBe(true);
-                // expect(jasmineMock.iit).toBe(true);
-                // expect(jasmineMock.it).toBe(true);
-                // expect(jasmineMock.xit).toBe(true);
+                expect(jasmineMock.afterEach.patchedForPromises).toBe(true);
+                expect(jasmineMock.beforeEach.patchedForPromises).toBe(true);
+                expect(jasmineMock.iit.patchedForPromises).toBe(true);
+                expect(jasmineMock.it.patchedForPromises).toBe(true);
+                expect(jasmineMock.xit.patchedForPromises).toBe(true);
             });
         });
         describe("Jasmine versions that do not utilize prototypal inheritance", () => {
+            var jasmineMock;
+
             beforeEach(() => {
-                jasmineMock = versionTestHelper("../../lib/promises.helper.js", 2);
+                jasmineMock = versionTestHelper("../../lib/promises.helper.js", "nonprototypal").Env;
             });
             it("have patched the methods", () => {
-                // expect(jasmineMock.afterEach).toBe(true);
-                // expect(jasmineMock.beforeEach).toBe(true);
-                // expect(jasmineMock.fit).toBe(true);
-                // expect(jasmineMock.it).toBe(true);
-                // expect(jasmineMock.xit).toBe(true);
+                expect(jasmineMock.afterEach.patchedForPromises).toBe(true);
+                expect(jasmineMock.beforeEach.patchedForPromises).toBe(true);
+                expect(jasmineMock.fit.patchedForPromises).toBe(true);
+                expect(jasmineMock.it.patchedForPromises).toBe(true);
+                expect(jasmineMock.xit.patchedForPromises).toBe(true);
             });
         });
-        // TODO Add Test To Ensure That Methods Are Not Double Patched
+    });
+    it("only patches for promises once", () => {
+        var jasmineCopy;
+
+        jasmineCopy = jasmine;
+        mockRequire.reRequire("../../lib/promises.helper.js");
+        expect(jasmineCopy).toBe(jasmine);
+    });
+    it("does not patch methods that already handle promises", (done) => {
+        mockRequire.reRequire("../../lib/promises.helper.js");
+        done();
     });
 });
