@@ -28,10 +28,10 @@ If you don't already have a helpers object in `spec/support/jasmine.json`, add t
 
 
     "helpers": [
-        "../node_modules/jasmine-test-helpers/lib/*"
+        "../node_modules/jasmine-test-helpers/lib/"
     ]
 
-If you already have a helpers object, just add `"../node_modules/jasmine-test-helpers/lib/*"` to it.
+If you already have a helpers object, just add `"../node_modules/jasmine-test-helpers/lib/"` to it.
 
 How to Use With Jasmine Versions Below 2
 ----------------------------------------
@@ -60,7 +60,7 @@ You would change that to:
     {
         "scripts": {
             "start": "node bin/myCoolApp",
-            "test": "jasmine-node node_modules/jasmine-test-helpers/lib/* spec/"
+            "test": "jasmine-node node_modules/jasmine-test-helpers/lib/ spec/"
         }
     }
 
