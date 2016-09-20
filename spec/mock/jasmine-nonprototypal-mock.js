@@ -3,15 +3,18 @@
 module.exports = () => {
     var mock;
 
+    class JasmineEnv {
+        constructor() {
+            this.afterEach = () => {};
+            this.beforeEach = () => {};
+            this.fit = () => {};
+            this.it = () => {};
+            this.xit = () => {};
+        }
+    }
+
     mock = {
-        // currentEnv_: {
-        //     afterEach: () => {},
-        //     beforeEach: () => {},
-        //     fit: () => {},
-        //     it: () => {},
-        //     xit: () => {}
-        // },
-        Env: {}
+        Env: JasmineEnv
     };
 
     return mock;
