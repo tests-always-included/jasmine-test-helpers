@@ -3,7 +3,7 @@
 "use strict";
 
 describe("fail.helper", () => {
-    var expectMock, mockRequire, realExpect;
+    var mockRequire, realExpect;
 
     mockRequire = require("mock-require");
 
