@@ -12,12 +12,13 @@
         "url": "git+https://github.com/tests-always-included/jasmine-test-helpers.git"
     },
     "keywords": [
-        "jasmine",
-        "promise",
-        "middleware",
-        "test",
         "helper",
-        "node"
+        "jasmine",
+        "jasmine-node",
+        "middleware",
+        "node",
+        "promise",
+        "test"
     ],
     "author": "Tests Always Included Team",
     "contributors": [
