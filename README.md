@@ -3,15 +3,18 @@ Jasmine Test Helpers
 
 *Helping you test your [Node.js] applications, one helper at a time.*
 
-[![Build Status][travis-image]][Travis CI]
-[![Dependencies][dependencies-image]][Dependencies]
-[![Dev Dependencies][devdependencies-image]][Dev Dependencies]
-[![codecov.io][codecov-image]][Code Coverage]
+[![npm version][npm-badge]][npm-link]
+[![Build Status][travis-badge]][travis-link]
+[![Dependencies][dependencies-badge]][dependencies-link]
+[![Dev Dependencies][devdependencies-badge]][devdependencies-link]
+[![codecov.io][codecov-badge]][codecov-link]
+
 
 About
 -----
 
 This contains a series of [Jasmine] helpers made to facilitate testing certain functionality more easily. These help to detect when a test fails but should have passed, turn middleware into a promise and makes it easier to use promises in tests. More explanation is below for each helper.
+
 
 How to Use With Jasmine Versions 2 And Up
 -----------------------------------------
@@ -32,6 +35,7 @@ If you don't already have a helpers object in `spec/support/jasmine.json`, add t
     ]
 
 If you already have a helpers object, just add `"../node_modules/jasmine-test-helpers/lib/"` to it.
+
 
 How to Use With Jasmine Versions Below 2
 ----------------------------------------
@@ -78,6 +82,7 @@ This is most useful when testing a promise is getting the reject as expected, an
         });
     });
 
+
 `jasmine.middlewareToPromise(middlewareFunction)`
 -------------------------------------------------
 
@@ -120,6 +125,7 @@ The middleware can be written in a traditional style using a callback like `done
         });
     });
 
+
 Promises Helper
 ---------------
 
@@ -145,14 +151,17 @@ This makes it much easier to use promises in node tests. Instead of having to re
 
 See how much simpler that is? You won't need to add `done` to the `it` or accidentally put `done` in the `describe` and wonder why your tests are failing when you've been writing tests all day.
 
-[Code Coverage]: https://codecov.io/github/tests-always-included/jasmine-test-helpers?branch=master
-[codecov-image]: https://codecov.io/github/tests-always-included/jasmine-test-helpers/coverage.svg?branch=master
-[Dev Dependencies]: https://david-dm.org/tests-always-included/jasmine-test-helpers/master#info=devDependencies
-[devdependencies-image]: https://david-dm.org/tests-always-included/jasmine-test-helpers/master/dev-status.png
-[Dependencies]: https://david-dm.org/tests-always-included/jasmine-test-helpers/master
-[dependencies-image]: https://david-dm.org/tests-always-included/jasmine-test-helpers/master.png
+
+[codecov-badge]: https://img.shields.io/codecov/c/github/tests-always-included/jasmine-test-helpers/master.svg
+[codecov-link]: https://codecov.io/github/tests-always-included/jasmine-test-helpers?branch=master
+[dependencies-badge]: https://img.shields.io/david/tests-always-included/jasmine-test-helpers.svg
+[dependencies-link]: https://david-dm.org/tests-always-included/jasmine-test-helpers
+[devdependencies-badge]: https://img.shields.io/david/dev/tests-always-included/jasmine-test-helpers.svg
+[devdependencies-link]: https://david-dm.org/tests-always-included/jasmine-test-helpers#info=devDependencies
 [Jasmine]: https://www.npmjs.com/package/jasmine
 [Jasmine-Node]: https://www.npmjs.com/package/jasmine-node
 [Node.js]: https://nodejs.org
-[travis-image]: https://secure.travis-ci.org/tests-always-included/jasmine-test-helpers.png
-[Travis CI]: http://travis-ci.org/tests-always-included/jasmine-test-helpers
+[npm-badge]: https://img.shields.io/npm/v/jasmine-test-helpers.svg
+[npm-link]: https://npmjs.org/package/jasmine-test-helpers
+[travis-badge]: https://img.shields.io/travis/tests-always-included/jasmine-test-helpers/master.svg
+[travis-link]: http://travis-ci.org/tests-always-included/jasmine-test-helpers
