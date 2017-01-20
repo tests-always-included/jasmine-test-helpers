@@ -43,7 +43,7 @@
     "homepage": "https://github.com/tests-always-included/jasmine-test-helpers#readme",
     "devDependencies": {
         "codecov": "^1.0.1",
-        "eslint": "^3.13.1",
+        "eslint": "^3.14.0",
         "eslint-plugin-jasmine": "^2.2.0",
         "istanbul": "^0.4.5",
         "jasmine-node": "^1.14.5",
