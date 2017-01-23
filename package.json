@@ -1,6 +1,6 @@
 {
     "name": "jasmine-test-helpers",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "Public and free software for helping test NodeJS projects using Jasmine or Jasmine-Node.",
     "main": "/index.js",
     "scripts": {
