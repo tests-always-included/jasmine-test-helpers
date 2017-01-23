@@ -1,29 +1,26 @@
 "use strict";
 
-module.exports = () => {
+module.exports = (realJasmine) => {
     var mock;
 
     /**
      * An alternative mock of Jasmine for version that did away with the
      * prototypal methods
      */
-    class JasmineEnv {
-        /**
-         * Mocks methods that need to be wrapped and patched by the promises
-         * helper.
-         */
-        constructor() {
-            this.afterEach = () => {};
-            this.beforeEach = () => {};
-            this.fit = () => {};
-            this.it = () => {};
-            this.xit = () => {};
-        }
+    function JasmineEnv() {
+        this.afterEach = () => {};
+        this.beforeEach = () => {};
+        this.fit = () => {};
+        this.it = () => {};
+        this.xit = () => {};
     }
 
-    mock = {
-        Env: JasmineEnv
-    };
+    mock = jasmine.createSpyObj("jasmine-nonprototypal", [
+        "getEnv"
+    ]);
+    mock.getEnv.andReturn(new JasmineEnv());
+    mock.Env = JasmineEnv;
+    mock.util = realJasmine.util;
 
     return mock;
 };

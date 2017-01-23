@@ -8,12 +8,12 @@ describe("promises.helper", () => {
     /**
      * Checks that an array of methods has been patched.
      *
-     * @param {Object} env
+     * @param {Object} obj
      * @param {Array} methods
      */
-    function testForPatching(env, methods) {
+    function testForPatching(obj, methods) {
         methods.forEach((method) => {
-            expect(env[method].patchedForPromises).toBe(true);
+            expect(obj[method].patchedForPromises).toBe(true);
         });
     }
 
@@ -21,13 +21,10 @@ describe("promises.helper", () => {
     /**
      * Provides a way of easily passing in a mock Jasmine environment.
      *
-     * @param {string} filePath
-     * @param {number} version
-     * @param {Object} [optionalMock] Makes sure patching happens only once.
-     * @return {Object}
+     * @param {Object} mock
      */
-    function versionTestHelper(filePath, version, optionalMock) {
-        var mock, oldJasmine;
+    function versionTestHelper(mock) {
+        var oldJasmine;
 
         /**
          * Resets Jasmine in the global namespace to the actual Jasmine, rather
@@ -39,24 +36,19 @@ describe("promises.helper", () => {
 
         oldJasmine = global.jasmine;
 
-        if (optionalMock) {
-            mock = optionalMock;
-        } else {
-            mock = mockRequire.reRequire(`../mock/jasmine-${version}-mock.js`)();
-        }
-
         try {
             global.jasmine = mock;
-            mockRequire.reRequire(filePath);
+            mockRequire.reRequire("../../lib/promises.helper.js");
         } catch (err) {
             cleanup();
+
             throw err;
         }
 
         cleanup();
-
-        return mock;
     }
+
+
     describe("check for promises working", () => {
         beforeEach(() => {
             check = 0;
@@ -83,15 +75,12 @@ describe("promises.helper", () => {
         });
     });
     describe("Version compatability:", () => {
-        describe("A Jasmine version that utitlize prototypal inheritance", () => {
-            var jasmineMock;
+        describe("A Jasmine version that uses prototypal inheritance", () => {
+            var jasmineMock, methods;
 
             beforeEach(() => {
-                jasmineMock = versionTestHelper("../../lib/promises.helper.js", "prototypal").Env.prototype;
-            });
-            it("has patched methods", () => {
-                var methods;
-
+                jasmineMock = require("../mock/jasmine-prototypal-mock.js")(jasmine);
+                versionTestHelper(jasmineMock);
                 methods = [
                     "afterEach",
                     "beforeEach",
@@ -99,18 +88,17 @@ describe("promises.helper", () => {
                     "it",
                     "xit"
                 ];
-                testForPatching(jasmineMock, methods);
-            });
-        });
-        describe("A Jasmine version that doesn't utilize prototypal inheritance", () => {
-            var jasmineMock;
-
-            beforeEach(() => {
-                jasmineMock = versionTestHelper("../../lib/promises.helper.js", "nonprototypal").Env;
             });
             it("has patched methods", () => {
-                var methods;
+                testForPatching(jasmineMock.Env.prototype, methods);
+            });
+        });
+        describe("A Jasmine version that doesn't use prototypal inheritance", () => {
+            var jasmineMock, methods;
 
+            beforeEach(() => {
+                jasmineMock = require("../mock/jasmine-nonprototypal-mock.js")(jasmine);
+                versionTestHelper(jasmineMock);
                 methods = [
                     "afterEach",
                     "beforeEach",
@@ -118,7 +106,15 @@ describe("promises.helper", () => {
                     "it",
                     "xit"
                 ];
-                testForPatching(jasmineMock, methods);
+            });
+            it("has patched methods", () => {
+                var newEnvInstance;
+
+                newEnvInstance = new jasmineMock.Env();
+                testForPatching(newEnvInstance, methods);
+            });
+            it("patches the current environment", () => {
+                testForPatching(jasmineMock.getEnv(), methods);
             });
         });
     });
