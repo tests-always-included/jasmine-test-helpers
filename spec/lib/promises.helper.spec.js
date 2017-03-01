@@ -100,7 +100,9 @@ describe("promises.helper", () => {
                 jasmineMock = require("../mock/jasmine-nonprototypal-mock.js")(jasmine);
                 versionTestHelper(jasmineMock);
                 methods = [
+                    "afterAll",
                     "afterEach",
+                    "beforeAll",
                     "beforeEach",
                     "fit",
                     "it",
