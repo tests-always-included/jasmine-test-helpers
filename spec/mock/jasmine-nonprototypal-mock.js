@@ -22,7 +22,7 @@ module.exports = (realJasmine) => {
     mock = jasmine.createSpyObj("jasmine-nonprototypal", [
         "getEnv"
     ]);
-    mock.getEnv.andReturn(new JasmineEnv());
+    mock.getEnv.and.returnValue(new JasmineEnv());
     mock.Env = JasmineEnv;
     mock.util = realJasmine.util;
 

@@ -9,7 +9,7 @@ describe("fail.helper", () => {
 
     beforeEach(() => {
         realExpect = expect;
-        spyOn(global, "expect").andReturn({
+        spyOn(global, "expect").and.returnValue({
             toBe: jasmine.createSpy("expect.toBe")
         });
     });
