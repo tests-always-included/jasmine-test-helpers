@@ -4,8 +4,8 @@
     "description": "Public and free software for helping test NodeJS projects using Jasmine or Jasmine-Node.",
     "main": "/index.js",
     "scripts": {
-        "test": "istanbul cover jasmine-node --captureExceptions lib/ spec/ && codecov && eslint .",
-        "watch": "jasmine-node lib spec --autotest --watch"
+        "test": "script/test",
+        "watch": "script/test"
     },
     "repository": {
         "type": "git",
@@ -51,8 +51,9 @@
         "eslint": "^3.14.0",
         "eslint-plugin-jasmine": "^2.2.0",
         "istanbul": "^0.4.5",
-        "jasmine-node": "^1.14.5",
-        "mock-require": "^2.0.1"
+        "jasmine": "~2.5.2",
+        "mock-require": "^2.0.1",
+        "nodemon": "~1.11.0"
     },
     "dependencies": {}
 }
