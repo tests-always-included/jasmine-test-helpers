@@ -1,6 +1,6 @@
 {
     "name": "jasmine-test-helpers",
-    "version": "1.2.0",
+    "version": "1.2.3",
     "description": "Public and free software for helping test NodeJS projects using Jasmine or Jasmine-Node.",
     "main": "/index.js",
     "scripts": {
@@ -47,12 +47,12 @@
     },
     "homepage": "https://github.com/tests-always-included/jasmine-test-helpers#readme",
     "devDependencies": {
-        "codecov": "^1.0.1",
-        "eslint": "^3.14.0",
+        "codecov": "^2.1.0",
+        "eslint": "^3.19.0",
         "eslint-plugin-jasmine": "^2.2.0",
         "istanbul": "^0.4.5",
         "jasmine": "~2.6.0",
-        "mock-require": "^2.0.1",
+        "mock-require": "^2.0.2",
         "nodemon": "~1.11.0"
     },
     "dependencies": {}
